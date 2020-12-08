@@ -23,6 +23,6 @@ class runmodel():
         break
       else:
         print(output)
+    os.killpg(os.getpgid(w2l_process.pid), signal.SIGTERM)  
     return output
 # finish the process
-os.killpg(os.getpgid(w2l_process.pid), signal.SIGTERM)  
