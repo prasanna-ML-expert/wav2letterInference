@@ -1,10 +1,10 @@
 import cherrypy
-import pandas as pd
+import sys
 import runmodel
-p = runmodel.runmodel()
+#p = runmodel.runmodel()
 
 class convertAudio(object):
-  p = runmodel.runmodel()
+  #p = runmodel.runmodel()
   @cherrypy.expose
   @cherrypy.tools.json_out()
   @cherrypy.tools.json_in()
@@ -14,7 +14,7 @@ class convertAudio(object):
       model_path = "/content/wav2letter/build/recipes/utilities/convlm_serializer/SerializeConvLM"
       w2l_bin = "/content/flashlight/build/bin/asr/fl_asr_decode"
       path_to_audio_file = '/content/wav2letterInference/numbersAudioMale.wav'
-      output = p.run(model_path,w2l_bin,path_to_audio_file)
+      output = runmodel.run(model_path,w2l_bin,path_to_audio_file)
       return output#.to_json()
   index.exposed = True
 
@@ -24,9 +24,9 @@ class convertAudio(object):
       model_path = "/content/wav2letter/build/recipes/utilities/convlm_serializer/SerializeConvLM"
       w2l_bin = "/content/flashlight/build/bin/asr/fl_asr_decode"
       path_to_audio_file = '/content/wav2letterInference/numbersAudioMale.wav'
-      output = p.run(model_path,w2l_bin,path_to_audio_file)
+      output = runmodel.run(model_path,w2l_bin,path_to_audio_file)
       return output#.to_json()
-  process.exposed =index True
+  process.exposed = True
 
 
 if __name__ == '__main__':
