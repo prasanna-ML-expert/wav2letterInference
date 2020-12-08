@@ -13,7 +13,7 @@ class convertAudio(object):
       #df = pd.DataFrame(data)
       model_path = "/content/wav2letter/build/recipes/utilities/convlm_serializer/SerializeConvLM"
       w2l_bin = "/content/flashlight/build/bin/asr/fl_asr_decode"
-      path_to_audio_file = '/content/wav2letterInference/numbersAudioMale.w/content/flashlight/build/bin/asr/fl_asr_decodeav'
+      path_to_audio_file = '/content/wav2letterInference/numbersAudioMale.wav'
       output = p.run(model_path,w2l_bin,path_to_audio_file)
       return output#.to_json()
   index.exposed = True
