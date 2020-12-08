@@ -1,4 +1,5 @@
-**wav2letter Inference API** 
+**wav2letter Inference API:** 
+
 wav2letter.ipynb is google colab notebook file.
 Run this colab file in google colab, which will fetch all depencies, compile and run the inference. The output of the inference is served over python web API.
 
