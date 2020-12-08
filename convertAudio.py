@@ -11,9 +11,9 @@ class convertAudio(object):
   def index(self):
       #data = cherrypy.request.json
       #df = pd.DataFrame(data)
-      model_path = "path/to/model/dir"
-      w2l_bin = "path/to/interactive_streaming_asr_example"
-      path_to_audio_file = '/content/wav2letterInference/numbersAudioMale.wav'
+      model_path = "/content/wav2letter/build/recipes/utilities/convlm_serializer/SerializeConvLM"
+      w2l_bin = "/content/flashlight/build/bin/asr/fl_asr_decode"
+      path_to_audio_file = '/content/wav2letterInference/numbersAudioMale.w/content/flashlight/build/bin/asr/fl_asr_decodeav'
       output = p.run(model_path,w2l_bin,path_to_audio_file)
       return output#.to_json()
   index.exposed = True
