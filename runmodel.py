@@ -15,15 +15,16 @@ class runmodel():
     #print(("input=%b\n" % path_to_audio_file).encode())
     #w2l_process.stdin.write("input=%b\n".encode() % path_to_audio_file)
     #w2l_process.stdin.flush()
-
+    output = bytearray()
     while True:
       # read from process stdout
-      output = w2l_process.stdout.readline()
+      intermediate_output = w2l_process.stdout.readline()
+      output.extend(intermediate_output)
       if b'Completed converting audio input from stdin to text' in output :#output == b'#finish transcribing\n':
         # finish transcribing an audio
         break
       else:
-        print(output)
+        print(intermediate_output)
       
     return output
 # finish the process
