@@ -13,9 +13,12 @@ If colab doesnt work, run the container in ubuntu18 machine as below.
 
 **Run the container**
 
-1)sudo docker run -p 8888:8888--rm -itd --ipc=host --name w2l wav2letter/wav2letter:inference-latest
+1)port forward to 8888
 
-2)sudo docker exec -it w2l bash
+>sudo docker run -p 8888:8888--rm -itd --ipc=host --name w2l wav2letter/wav2letter:inference-latest
+
+2)Execute the container
+>sudo docker exec -it w2l bash
 
 wav2letter library/project inside the path /root/wav2letter/
 
