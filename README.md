@@ -10,6 +10,7 @@ Upload wav file to wav2letterInference folder and change the name to numbersAudi
 
 ---------------------------------------
 If colab doesnt work, run the container in ubuntu18 machine as below.
+
 **Run the container**
 
 1)sudo docker run --rm -itd --ipc=host --name w2l wav2letter/wav2letter:inference-latest
