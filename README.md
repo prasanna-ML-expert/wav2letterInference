@@ -8,18 +8,22 @@ While installing Arrayfire, you need to accept the licence by inputting Y in the
 
 Upload wav file to wav2letterInference folder and change the name to numbersAudioMale.wav(or change filename/line 16 in convertAudio.py) for Inference
 
+---------------------------------------
+If colab doesnt work, run the container in ubuntu18 machine as below.
 **Run the container**
 
 1)sudo docker run --rm -itd --ipc=host --name w2l wav2letter/wav2letter:inference-latest
 
 2)sudo docker exec -it w2l bash
 
+wav2letter library/project inside the path /root/wav2letter/
+
 **Running inference inside the container using python code**,
 
 1)download model from AWS with below command into folder model
 for f in acoustic_model.bin tds_streaming.arch decoder_options.json feature_extractor.bin language_model.bin lexicon.txt tokens.txt ; do wget http://dl.fbaipublicfiles.com/wav2letter/inference/examples/model/${f} ; done
 
-2)and run(python runmodel.py)
+2)and run(/root/wav2letter/build> python ~/wav2letterInference/runmodel.py)
 
 NOTE: Change path for binary, model folder and wav file path accordingly in the runmodel file
 
