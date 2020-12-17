@@ -1,5 +1,6 @@
 import os
 import signal
+import re
 from subprocess import Popen, PIPE  
 
 class runmodel():
@@ -15,16 +16,25 @@ class runmodel():
     #print(("input=%b\n" % path_to_audio_file).encode())
     #w2l_process.stdin.write("input=%b\n".encode() % path_to_audio_file)
     #w2l_process.stdin.flush()
-    output = bytearray()
+    #output = bytearray()
+    output = str()
     while True:
       # read from process stdout
       intermediate_output = w2l_process.stdout.readline()
-      output.extend(intermediate_output)
-      if b'Completed converting audio input from stdin to text' in output :#output == b'#finish transcribing\n':
+      match = re.search('[0-9]{1,6}',intermediate_output.decode("utf-8"))
+      if match:
+        split_array = re.split(',' , intermediate_output.decode("utf-8"))
+      else:
+        split_array = []
+      if b'Completed converting audio input from stdin to text' in intermediate_output :#output == b'#finish transcribing\n':
         # finish transcribing an audio
         break
       else:
-        print(intermediate_output)
+        if len(split_array) > 1:
+          #output.extend(split_array[2])
+          output+= split_array[2]
+          print(split_array[2])
+          print(intermediate_output)
       
     return output
 # finish the process

@@ -16,7 +16,7 @@ class convertAudio(object):
       w2l_bin = "/root/wav2letter/build/inference/inference/examples/simple_streaming_asr_example"
       path_to_audio_file = '/home/wav2letterInference/numbersAudioGirl.wav'
       output = runmodel.run(model_path,w2l_bin,path_to_audio_file)
-      return "<p>" + output.decode("utf-8").replace('\n', '<br>') + "</p>" #.to_json() 
+      return output.replace('\n',' ') #.to_json() 
   index.exposed = True
 
   def process(self):
