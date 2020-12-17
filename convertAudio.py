@@ -1,6 +1,7 @@
 import cherrypy
 import sys
-import runmodel
+import json
+from runmodel import runmodel
 #p = runmodel.runmodel()
 
 class convertAudio(object):
@@ -15,7 +16,7 @@ class convertAudio(object):
       w2l_bin = "/root/wav2letter/build/inference/inference/examples/simple_streaming_asr_example"
       path_to_audio_file = '/home/wav2letterInference/numbersAudioGirl.wav'
       output = runmodel.run(model_path,w2l_bin,path_to_audio_file)
-      return output#.to_json()
+      return "<p>" + output.decode("utf-8").replace('\n', '<br>') + "</p>" #.to_json() 
   index.exposed = True
 
   def process(self):
@@ -30,6 +31,6 @@ class convertAudio(object):
 
 
 if __name__ == '__main__':
-    config = {'server.socket_host': '0.0.0.0','server.socket_port' : int(sys.argv[1])}
+    config = {'global':{'server.socket_host': '0.0.0.0','server.socket_port' : int(sys.argv[1])}}
     cherrypy.config.update(config)
     cherrypy.quickstart(convertAudio())
