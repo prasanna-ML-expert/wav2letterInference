@@ -13,9 +13,12 @@ If colab doesnt work, run the container in ubuntu18 machine as below.
 
 **Run the container**
 
-1)sudo docker run --rm -itd --ipc=host --name w2l wav2letter/wav2letter:inference-latest
+1)port forward to 8888
 
-2)sudo docker exec -it w2l bash
+>sudo docker run -p 8888:8888--rm -itd --ipc=host --name w2l wav2letter/wav2letter:inference-latest
+
+2)Execute the container
+>sudo docker exec -it w2l bash
 
 wav2letter library/project inside the path /root/wav2letter/
 
@@ -23,14 +26,21 @@ wav2letter library/project inside the path /root/wav2letter/
 
 1)download model from AWS with below command into folder *model*:
 
-for f in acoustic_model.bin tds_streaming.arch decoder_options.json feature_extractor.bin language_model.bin lexicon.txt tokens.txt ; do wget http://dl.fbaipublicfiles.com/wav2letter/inference/examples/model/${f} ; done
+> for f in acoustic_model.bin tds_streaming.arch decoder_options.json feature_extractor.bin language_model.bin lexicon.txt tokens.txt ; do wget http://dl.fbaipublicfiles.com/wav2letter/inference/examples/model/${f} ; done
 
-2)and run:
+2) Download this repository, for python code
+
+> git clone https://github.com/jkreddy123/wav2letterInference.git
+
+3)Check Inference on shell, run:
 
 /root/wav2letter/build> python ~/wav2letterInference/runmodel.py
 
 NOTE: Change path for binary, model folder and wav file path accordingly in the runmodel file
 
+4) check Inference results on browser http://0.0.0.0:8888/index, run
+
+>python ~/wav2letterInference/convertAudio.py 8888
 
 contact jkreddy@colorssoftware.com
 
