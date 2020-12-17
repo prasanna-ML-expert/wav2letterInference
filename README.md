@@ -21,7 +21,7 @@ wav2letter library/project inside the path /root/wav2letter/
 
 **Running inference inside the container using python code**,
 
-1)download model from AWS with below command into folder model
+1)download model from AWS with below command into folder *model*
 
 for f in acoustic_model.bin tds_streaming.arch decoder_options.json feature_extractor.bin language_model.bin lexicon.txt tokens.txt ; do wget http://dl.fbaipublicfiles.com/wav2letter/inference/examples/model/${f} ; done
 
@@ -34,7 +34,7 @@ contact jkreddy@colorssoftware.com
 
 Output looks like below
 
-b'Started features model file loading ... \n'
+```b'Started features model file loading ... \n'
 b'Completed features model file loading elapsed time=2407 microseconds\n'
 b'\n'
 b'Started acoustic model file loading ... \n'
@@ -63,5 +63,5 @@ b'7000,8000,nine \n'
 b'8000,9000,ten eleven \n'
 b'9000,10000,twelve thirty \n'
 b'10000,10334,forty fifty \n'
-b'Completed converting audio input from stdin to text... elapsed time=2626 milliseconds\n'
+b'Completed converting audio input from stdin to text... elapsed time=2626 milliseconds\n'```
 
