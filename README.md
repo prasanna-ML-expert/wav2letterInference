@@ -22,6 +22,7 @@ wav2letter library/project inside the path /root/wav2letter/
 **Running inference inside the container using python code**,
 
 1)download model from AWS with below command into folder model
+
 for f in acoustic_model.bin tds_streaming.arch decoder_options.json feature_extractor.bin language_model.bin lexicon.txt tokens.txt ; do wget http://dl.fbaipublicfiles.com/wav2letter/inference/examples/model/${f} ; done
 
 2)and run(/root/wav2letter/build> python ~/wav2letterInference/runmodel.py)
