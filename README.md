@@ -40,7 +40,7 @@ NOTE: Change path for binary, model folder and wav file path accordingly in the 
 
 4) check Inference results on browser http://0.0.0.0:8888/index, run
 
->python ~/wav2letterInference/convertAudio.py
+>python ~/wav2letterInference/convertAudio.py 8888
 
 contact jkreddy@colorssoftware.com
 
